@@ -1,22 +1,7 @@
 <?php 
-
-function mod($number, $divider) {
-    return ceil(($number % $divider) / 10);
-}
-
-function fizzbuzz($size) {
-    $words = [0 => 'Linianos', 1=> 'IT', 2 => 'linio'];
-    for ($number = 1; $number <= 100; $number++) {
-
-        $multiple = mod($number,3) + 2 * mod($number,5);
-
-        if($multiple <= 2) {
-            echo($words[$multiple].' ');
-            continue;
-        }
-
-        echo($number.' ');
+function fizzbuzz($size) { 
+    foreach (range(1, 100) as $number) { 
+        echo((array(0 => 'Linianos', 1=> 'IT', 2 => 'linio')[ceil(($number % 3) / 10) + 2 * ceil(($number % 5) / 10)] ?? $number).' '); 
     }
-}
-
+} 
 fizzbuzz(100);
